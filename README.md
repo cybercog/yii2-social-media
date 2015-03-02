@@ -38,8 +38,8 @@ And modify your backend configuration as follows:
 return [
     ...
     'modules' => [
-        'sales' => [
-            'class' => 'infoweb\ecommerce\sales\Module',
+        'social-media' => [
+            'class' => 'infoweb\socialMedia\Module',
         ],
     ],
     ...
