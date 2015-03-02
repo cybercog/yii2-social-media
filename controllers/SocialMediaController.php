@@ -1,6 +1,6 @@
 <?php
 
-namespace infoweb\ecommerce\sales\controllers;
+namespace infoweb\socialMedia\controllers;
 
 use Yii;
 use yii\web\Controller;
@@ -11,11 +11,8 @@ use yii\base\Exception;
 use yii\web\Response;
 use yii\helpers\ArrayHelper;
 
-use infoweb\ecommerce\sales\models\customer\Customer;
-use infoweb\ecommerce\sales\models\customer\Group;
-use infoweb\ecommerce\sales\models\customer\Address;
-use infoweb\ecommerce\sales\models\search\CustomerSearch;
-
+use infoweb\ecommerce\sales\models\customer\SocialMedia;
+use infoweb\ecommerce\sales\models\search\SocialMediaSearch;
 
 /**
  * CustomerController implements the CRUD actions for Customer model.
@@ -40,7 +37,7 @@ class CustomerController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new CustomerSearch();
+        $searchModel = new SocialMediaSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -56,9 +53,10 @@ class CustomerController extends Controller
      */
     public function actionCreate()
     {
+        /*
         // Load the model
         $model = new Customer(['active' => 1]);
-        
+
         // Load customer groups
         $groups = ArrayHelper::map(
             Group::find()
@@ -100,7 +98,7 @@ class CustomerController extends Controller
                     if (!$model->load($post) || !$model->save()) {
                         throw new Exception(Yii::t('ecommerce', 'Failed to save the node'));
                     }
-                    
+
                     // Use the model attributes to create the default address model
                     $address = new Address([
                         'customer_id'       => $model->id,
@@ -113,7 +111,7 @@ class CustomerController extends Controller
                         'country_id'        => $model->country_id,
                         'default'           => 1
                     ]);
-                    
+
                     if (!$address->save())
                         throw new Exception(Yii::t('ecommerce', 'Failed to save the node'));
 
@@ -146,6 +144,7 @@ class CustomerController extends Controller
             'model'     => $model,
             'groups'    => $groups
         ]);
+        */
     }
 
     /**
@@ -156,8 +155,9 @@ class CustomerController extends Controller
      */
     public function actionUpdate($id)
     {
+        /*
         $model = $this->findModel($id);
-        
+
         // Load customer groups
         $groups = ArrayHelper::map(
             Group::find()
@@ -228,8 +228,9 @@ class CustomerController extends Controller
             'model'     => $model,
             'groups'    => $groups
         ]);
+        */
     }
-    
+
     /**
      * Deletes an existing Manufacturer model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
@@ -252,7 +253,7 @@ class CustomerController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = Customer::findOne($id)) !== null) {
+        if (($model = SocialMedia::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));

@@ -10,28 +10,8 @@ use infoweb\ecommerce\sales\models\customer\Address;
 
 /**
  * This is the model class for table "ecommerce_customers".
- *
- * @property string $id
- * @property string $group_id
- * @property string $firstname
- * @property string $name
- * @property string $company
- * @property string $address
- * @property string $zipcode
- * @property string $city
- * @property string $email
- * @property string $phone
- * @property string $mobile
- * @property string $fax
- * @property string $password
- * @property integer $active
- * @property string $created_at
- * @property string $updated_at
- *
- * @property Session[] $sessions
- * @property Group $group
  */
-class Customer extends ActiveRecord
+class SocialMedia extends ActiveRecord
 {
     /**
      * @inheritdoc

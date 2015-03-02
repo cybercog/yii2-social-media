@@ -24,7 +24,9 @@
         "yiisoft/yii2": "*",
         "facebook/php-sdk-v4": "@stable",
         "abraham/twitteroauth": "@stable",
-        "google/apiclient": "@stable"
+        "google/apiclient": "@stable",
+        "happyr/linkedin-api-client": "@stable",
+        "kartik-v/yii2-social": "@stable"
     },
     "autoload": {
         "psr-4": {
