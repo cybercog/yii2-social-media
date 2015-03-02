@@ -1,11 +1,11 @@
 <?php
-namespace infoweb\ecommerce\sales;
+namespace infoweb\social\assets;
 
 use yii\web\AssetBundle as AssetBundle;
 
-class SalesAsset extends AssetBundle
+class SocialAsset extends AssetBundle
 {
-    public $sourcePath = '@infoweb/ecommerce/sales/assets/';
+    public $sourcePath = '@infoweb/social/assets/';
     
     public $css = [
         'css/main.css',

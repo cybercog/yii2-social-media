@@ -1,6 +1,6 @@
 <?php
 
-namespace infoweb\socialMedia;
+namespace infoweb\social;
 
 use Yii;
 

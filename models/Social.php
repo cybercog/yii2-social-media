@@ -5,9 +5,10 @@ namespace infoweb\social\models;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
+use dosamigos\translateable\TranslateableBehavior;
 
 /**
- * This is the model class for table "ecommerce_customers".
+ * This is the model class for table "social_media".
  */
 class Social extends ActiveRecord
 {
@@ -16,7 +17,7 @@ class Social extends ActiveRecord
      */
     public static function tableName()
     {
-        return 'ecommerce_customers';
+        return 'social_media';
     }
 
     /**
@@ -32,7 +33,14 @@ class Social extends ActiveRecord
                     ActiveRecord::EVENT_BEFORE_UPDATE => 'updated_at',
                 ],
                 'value' => function() { return time(); },
-            ]
+            ],
+            'trans' => [
+                'class' => TranslateableBehavior::className(),
+                'translationAttributes' => [
+                    'title',
+                    'content',
+                ],
+            ],
         ];
     }
 
@@ -42,12 +50,7 @@ class Social extends ActiveRecord
     public function rules()
     {
         return [
-            [['group_id', 'firstname', 'name', 'address', 'zipcode', 'city', 'email', 'country_id'], 'required'],
-            [['group_id', 'country_id', 'active', 'created_at', 'updated_at'], 'integer'],
-            [['firstname', 'name', 'company', 'address', 'city', 'email', 'password'], 'string', 'max' => 255],
-            [['zipcode'], 'string', 'max' => 20],
-            [['phone', 'mobile', 'fax'], 'string', 'max' => 25],
-            [['email'], 'unique']
+            [['posted_on_facebook', 'posted_on_twitter', 'posted_on_google_plus', 'created_at', 'updated_at'], 'integer'],
         ];
     }
 
@@ -59,5 +62,13 @@ class Social extends ActiveRecord
         return [
             'id' => Yii::t('app', 'ID'),
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTranslations()
+    {
+        return $this->hasMany(Lang::className(), ['node_id' => 'id']);
     }
 }

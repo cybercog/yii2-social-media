@@ -25,8 +25,8 @@ use yii\bootstrap\Tabs;
     // Add the main tabs
     $tabs = [
         [
-            'label' => Yii::t('ecommerce', 'General'),
-            'content' => $this->render('_default_tab', ['model' => $model, 'groups' => $groups, 'form' => $form]),
+            'label' => Yii::t('app', 'General'),
+            'content' => $this->render('_default_tab', ['model' => $model, 'form' => $form]),
             'active' => true,
         ]
     ];
@@ -35,7 +35,6 @@ use yii\bootstrap\Tabs;
     echo Tabs::widget(['items' => $tabs]);
     ?>
 
-    <?php /* @todo Create separate view file in cms module */ ?>
     <div class="form-group buttons">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create & close') : Yii::t('app', 'Update & close'), ['class' => 'btn btn-default', 'name' => 'close']) ?>

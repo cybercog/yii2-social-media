@@ -1,11 +1,11 @@
-<?php if (Yii::$app->getSession()->hasFlash('customer')): ?>
+<?php if (Yii::$app->getSession()->hasFlash('social')): ?>
 <div class="alert alert-success">
-    <p><?= Yii::$app->getSession()->getFlash('customer') ?></p>
+    <p><?= Yii::$app->getSession()->getFlash('social') ?></p>
 </div>
 <?php endif; ?>
 
-<?php if (Yii::$app->getSession()->hasFlash('customer-error')): ?>
+<?php if (Yii::$app->getSession()->hasFlash('social-error')): ?>
 <div class="alert alert-danger">
-    <p><?= Yii::$app->getSession()->getFlash('customer-error') ?></p>
+    <p><?= Yii::$app->getSession()->getFlash('social-error') ?></p>
 </div>
 <?php endif; ?>

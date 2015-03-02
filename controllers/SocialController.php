@@ -1,23 +1,21 @@
 <?php
 
-namespace infoweb\socialMedia\controllers;
+namespace infoweb\social\controllers;
 
 use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\widgets\ActiveForm;
-use yii\base\Exception;
-use yii\web\Response;
 use yii\helpers\ArrayHelper;
+use yii\base\Exception;
 
-use infoweb\ecommerce\sales\models\customer\SocialMedia;
-use infoweb\ecommerce\sales\models\search\SocialMediaSearch;
+use infoweb\social\models\Social;
+use infoweb\social\models\SocialSearch;
 
 /**
  * CustomerController implements the CRUD actions for Customer model.
  */
-class CustomerController extends Controller
+class SocialController extends Controller
 {
     public function behaviors()
     {
@@ -37,7 +35,7 @@ class CustomerController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new SocialMediaSearch();
+        $searchModel = new SocialSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -53,22 +51,9 @@ class CustomerController extends Controller
      */
     public function actionCreate()
     {
-        /*
-        // Load the model
-        $model = new Customer(['active' => 1]);
 
-        // Load customer groups
-        $groups = ArrayHelper::map(
-            Group::find()
-                ->select(['id', 'name'])
-                ->joinWith('translations')
-                ->where(['language' => Yii::$app->language])
-                ->orderBy(['position' => SORT_ASC])
-                ->asArray()
-                ->all(),
-            'id',
-            'name'
-        );
+        // Load the model
+        $model = new Social();
 
         try {
 
@@ -99,26 +84,10 @@ class CustomerController extends Controller
                         throw new Exception(Yii::t('ecommerce', 'Failed to save the node'));
                     }
 
-                    // Use the model attributes to create the default address model
-                    $address = new Address([
-                        'customer_id'       => $model->id,
-                        'company'           => $model->company,
-                        'firstname'         => $model->firstname,
-                        'name'              => $model->name,
-                        'address'           => $model->address,
-                        'zipcode'           => $model->zipcode,
-                        'city'              => $model->city,
-                        'country_id'        => $model->country_id,
-                        'default'           => 1
-                    ]);
-
-                    if (!$address->save())
-                        throw new Exception(Yii::t('ecommerce', 'Failed to save the node'));
-
                     $transaction->commit();
 
                     // Set flash message
-                    Yii::$app->getSession()->setFlash('customer', Yii::t('app', '"{item}" has been created', ['item' => "{$model->firstname} {$model->name}"]));
+                    Yii::$app->getSession()->setFlash('social', Yii::t('app', '"{item}" has been created', ['item' => "{$model->title}"]));
 
                     // Take appropriate action based on the pushed button
                     if (isset($post['close'])) {
@@ -137,14 +106,12 @@ class CustomerController extends Controller
             }
 
             // Set flash message
-            Yii::$app->getSession()->setFlash('customer-error', $e->getMessage());
+            Yii::$app->getSession()->setFlash('social-error', $e->getMessage());
         }
 
         return $this->render('create', [
             'model'     => $model,
-            'groups'    => $groups
         ]);
-        */
     }
 
     /**

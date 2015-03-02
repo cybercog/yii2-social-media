@@ -1,4 +1,5 @@
-$(document).ready(function() {    
+/*
+$(document).ready(function() {
     Order.init();
 });
 
@@ -62,7 +63,7 @@ var Order = (function() {
      *
      * @param   Event
      * @return  void
-     */
+
     Order.disableTabs = function() {
         $('.disabled a[data-toggle]').removeAttr('data-toggle');    
     };
@@ -204,3 +205,4 @@ var Order = (function() {
     
     return Order;
 })();
+*/

@@ -2,19 +2,18 @@
 
 use yii\helpers\Html;
 
-$this->title = Yii::t('ecommerce', 'Create {modelClass}', [
-    'modelClass' => Yii::t('ecommerce', 'Customer'),
+$this->title = Yii::t('infoweb/social', 'Create {modelClass}', [
+    'modelClass' => Yii::t('infoweb/social', 'social media'),
 ]);
-$this->params['breadcrumbs'][] = ['label' => Yii::t('ecommerce', 'Customers'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('infoweb/social', 'Social media'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="customer-create">
+<div class="social-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
         'model'     => $model,
-        'groups'    => $groups
     ]) ?>
 
 </div>

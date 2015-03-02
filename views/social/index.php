@@ -9,10 +9,10 @@ Icon::map($this);
 /* @var $searchModel infoweb\catalogue\models\search\ManufacturerSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('ecommerce', 'Customers');
+$this->title = Yii::t('infoweb/social', 'Social media');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="customer-index">
+<div class="social-index">
 
     <?php // Title ?>
     <h1>
@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php // Buttons ?>
         <div class="pull-right">
             <?= Html::a(Yii::t('app', 'Create {modelClass}', [
-                'modelClass' => Yii::t('ecommerce', 'Customer'),
+                'modelClass' => Yii::t('infoweb/social', 'Social media'),
             ]), ['create'], ['class' => 'btn btn-success']) ?>
         </div>
     </h1>
@@ -32,29 +32,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            'name',
-            'firstname',
-            'company',
+            'title',
             [
                 'class' => 'kartik\grid\ActionColumn',
-                'template' => '{update} {delete} {active}',
-                'buttons' => [
-                    'active' => function ($url, $model) {
-                        if ($model->active == true) {
-                            $icon = 'glyphicon-eye-open';
-                        } else {
-                            $icon = 'glyphicon-eye-close';
-                        }
-
-                        return Html::a('<span class="glyphicon ' . $icon . '"></span>', $url, [
-                            'title' => Yii::t('app', 'Toggle active'),
-                            'data-pjax' => '0',
-                            'data-toggleable' => 'true',
-                            'data-toggle-id' => $model->id,
-                            'data-toggle' => 'tooltip',
-                        ]);
-                    }
-                ],
+                'template' => '{update} {delete}',
                 'updateOptions' => ['title' => Yii::t('app', 'Update'), 'data-toggle' => 'tooltip'],
                 'deleteOptions' => ['title' => Yii::t('app', 'Delete'), 'data-toggle' => 'tooltip'],
                 'width' => '100px',
