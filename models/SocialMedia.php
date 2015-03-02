@@ -59,64 +59,7 @@ class SocialMedia extends ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('ecommerce', 'ID'),
-            'group_id' => Yii::t('ecommerce', 'Group'),
-            'firstname' => Yii::t('ecommerce', 'Firstname'),
-            'name' => Yii::t('ecommerce', 'Name'),
-            'company' => Yii::t('ecommerce', 'Company'),
-            'address' => Yii::t('ecommerce', 'Address'),
-            'zipcode' => Yii::t('ecommerce', 'Zipcode'),
-            'city' => Yii::t('ecommerce', 'City'),
-            'email' => Yii::t('ecommerce', 'Email'),
-            'phone' => Yii::t('ecommerce', 'Phone'),
-            'mobile' => Yii::t('ecommerce', 'Mobile'),
-            'fax' => Yii::t('ecommerce', 'Fax'),
-            'country_id' => Yii::t('ecommerce', 'Country'),
-            'password' => Yii::t('ecommerce', 'Password'),
-            'active' => Yii::t('ecommerce', 'Active'),
-            'created_at' => Yii::t('ecommerce', 'Created At'),
-            'updated_at' => Yii::t('ecommerce', 'Updated At'),
+            'id' => Yii::t('app', 'ID'),
         ];
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getSessions()
-    {
-        return $this->hasMany(Session::className(), ['customer_id' => 'id']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getGroup()
-    {
-        return $this->hasOne(Group::className(), ['id' => 'group_id']);
-    }
-    
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getAddresses()
-    {
-        return $this->hasMany(Address::className(), ['customer_id' => 'id']);
-    }
-    
-    /**
-     * Returns the customers' addresses, formatted for usage
-     * in the kartik\widgets\DepDrop widget
-     * 
-     * @return  array
-     */
-    public function getAddressesForDepDropdown()
-    {
-        $addresses = [];
-        
-        foreach ($this->addresses as $address) {
-            $addresses[$address->id] = "{$address->firstname} {$address->name}, {$address->address}, {$address->zipcode} {$address->city}";    
-        }
-        
-        return $addresses;
     }
 }
