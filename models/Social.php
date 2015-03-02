@@ -1,17 +1,15 @@
 <?php
 
-namespace infoweb\ecommerce\sales\models\customer;
+namespace infoweb\social\models;
 
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 
-use infoweb\ecommerce\sales\models\customer\Address;
-
 /**
  * This is the model class for table "ecommerce_customers".
  */
-class SocialMedia extends ActiveRecord
+class Social extends ActiveRecord
 {
     /**
      * @inheritdoc
